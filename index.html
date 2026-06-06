@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Shift</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css">
+</head>
+<body>
+
+    <div class="container">
+
+    <h1>🎨 Color Shift 🎨</h1>
+
+    <div class="row">
+        <input type="file" id="imageInput" accept="image/*">
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <div class="row">
+        <button id="replaceBtn">색상 변경</button>
+        <button id="downloadBtn">다운로드</button>
+    </div>
+
+    <div class="info-box">
+        <strong>선택된 색상</strong><br><br>
+        <span>HEX :</span> <span id="pickedHex">-</span> <br>
+        <span>RGB :</span> <span id="pickedRgb">-</span> <br>
+        <div id="colorPreview"></div>
+    </div>
+
+    <div class="row">
+        <label>
+            <input type="checkbox" id="eyedropperMode" checked>
+            스포이트 모드
+        </label>
+    </div>
+
+    <div class="row">
+        <strong>입력 방식</strong><br><br>
+        <label><input type="radio" name="colorMode" value="hex" checked>HEX</label>
+        <label><input type="radio" name="colorMode" value="rgb">RGB</label>
+    </div>
+
+    <div id="hexInputs">
+        <div class="row">
+            <label>원본 색상</label>
+            <input type="text" id="sourceHex" value="#FF0000">
+        </div>
+        <div class="row">
+            <label>대상 색상</label>
+            <input type="text" id="targetHex" value="#0000FF">
+        </div>
+    </div>
+
+    <div id="rgbInputs" class="hidden">
+        <div class="row">
+            <label>원본 색상</label>
+            <span class="rgb-group">
+                R <input type="number" id="sr" min="0" max="255" value="255">
+                G <input type="number" id="sg" min="0" max="255" value="0">
+                B <input type="number" id="sb" min="0" max="255" value="0">
+            </span>
+        </div>
+        <div class="row">
+            <label>대상 색상</label>
+            <span class="rgb-group">
+                R <input type="number" id="tr" min="0" max="255" value="0">
+                G <input type="number" id="tg" min="0" max="255" value="0">
+                B <input type="number" id="tb" min="0" max="255" value="255">
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <label>허용 오차</label>
+        <input type="number"id="tolerance"min="0"max="441"value="1">
+        <small>(0~441)</small>
+    </div>
+
+    <div id="picker">
+        <button class="pcr-button"></button>
+    </div>
+
+    <script type="module" src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+
+</body>
+</html>
