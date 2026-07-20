@@ -1,0 +1,189 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#eeeeee;
+    padding:30px;
+    color:#333;
+}
+
+.container{
+    max-width:1600px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+h2{
+    margin-bottom:15px;
+}
+
+h3{
+    text-align:center;
+    margin-bottom:10px;
+}
+
+.panel{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* 컬러 팔레트 */
+
+.paletteGrid{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:25px;
+}
+
+.paletteItem{
+    text-align:center;
+}
+
+.paletteItem label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.paletteItem input[type="color"]{
+    width:100px;
+    height:60px;
+    border:none;
+    cursor:pointer;
+}
+
+/* 밝기 */
+
+.brightnessBox{
+    margin-top:25px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+#brightness{
+    width:300px;
+}
+
+#brightnessValue{
+    width:60px;
+    font-weight:bold;
+    text-align:center;
+}
+
+/* 선택 색상 */
+
+.pickedBox{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+#pickedPreview{
+    width:70px;
+    height:70px;
+    border:2px solid #333;
+    border-radius:8px;
+    background:white;
+}
+
+/* 슬라이더 */
+
+#tolerance{
+    width:300px;
+}
+
+#toleranceValue{
+    font-weight:bold;
+    margin-left:10px;
+}
+
+/*  캔버스 */
+
+canvas{
+    image-rendering: pixelated;
+}
+
+#sourceCanvas{
+    display:block;
+    width:50%;
+    max-width:600px;
+    border:1px solid #999;
+    margin:auto;
+    cursor:crosshair;
+}
+
+/* 결과 4개 */
+
+.previewGrid{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:20px;
+}
+
+.previewItem{
+    background:#fafafa;
+    padding:15px;
+    border: 1px solid #ddd;
+    border-radius:10px;
+}
+
+.previewItem canvas{
+    width:100%;
+    display:block;
+    border:1px solid #999;
+    background:white;
+    margin-bottom:15px;
+}
+
+/* 버튼 */
+
+.downloadBtn{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:6px;
+    background:#3478f6;
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.downloadBtn:hover{
+    background:#155ed8;
+}
+
+/* 반응형 */
+
+@media(max-width:1200px){
+    .previewGrid{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+    body{
+        padding:15px;
+    }
+    .paletteGrid{
+        grid-template-columns: repeat(2,1fr);
+
+    }
+    .previewGrid{
+        grid-template-columns: 1fr;
+    }
+    #sourceCanvas{
+        width:100%;
+    }
+}

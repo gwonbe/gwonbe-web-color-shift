@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Shift</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <h1>🎨 Color Shift 🎨</h1>
+
+
+        <!-- 이미지 업로드 -->
+        <section class="panel">
+            <h2>이미지</h2>
+            <input type="file"id="imageInput"accept="image/*">
+        </section>
+
+
+
+        <!-- 현재 적용 설정 -->
+
+        <section class="panel">
+
+            <h2>다음 변경 설정</h2>
+
+            <div class="paletteGrid">
+                <div class="paletteItem">
+                    <label>RED</label>
+                    <input type="color" id="color0" value="#ff3b30">
+                </div>
+                <div class="paletteItem">
+                    <label>YELLOW</label>
+                    <input type="color" id="color1" value="#ffd60a">
+                </div>
+                <div class="paletteItem">
+                    <label>GREEN</label>
+                    <input type="color" id="color2" value="#34c759">
+                </div>
+                <div class="paletteItem">
+                    <label>BLUE</label>
+                    <input type="color" id="color3" value="#0a84ff">
+                </div>
+            </div>
+
+            <div class="brightnessBox">
+                <label>밝기</label>
+                <input type="range" id="brightness" min="50" max="150" value="100">
+                <span id="brightnessValue"> 100% </span>
+            </div>
+
+        </section>
+
+        <!-- 선택 색상 -->
+
+        <section class="panel">
+            <h2>선택한 원본 색상</h2>
+            <div class="pickedBox">
+                <div id="pickedPreview"></div>
+                <div>
+                    <div>
+                        원본 색상 선택
+                        <input type="color" id="sourceColor" value="#BABABA">
+                    </div>
+                    <div>
+                        HEX :<span id="pickedHex">#BABABA</span>
+                    </div>
+                    <div>
+                        RGB : <span id="pickedRgb">186,186,186</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 허용 오차 -->
+
+        <section class="panel">
+            <h2>변경 범위</h2>
+            <input type="range" id="tolerance" min="0" max="100" value="20">
+            <span id="toleranceValue"> 20 </span>
+        </section>
+
+        <!-- 원본 -->
+
+        <section class="panel">
+            <h2>원본 이미지</h2>
+            <canvas id="sourceCanvas"></canvas>
+        </section>
+
+        <!-- 결과 -->
+
+        <section class="panel">
+
+            <h2>색상 결과</h2>
+
+            <div class="previewGrid">
+                <div class="previewItem">
+                    <h3>RED</h3>
+                    <canvas id="canvas0"></canvas>
+                    <button class="downloadBtn" data-index="0">다운로드</button>
+                </div>
+                <div class="previewItem">
+                    <h3>YELLOW</h3>
+                    <canvas id="canvas1"></canvas>
+                    <button class="downloadBtn" data-index="1">다운로드</button>
+                </div>
+                <div class="previewItem">
+                    <h3>GREEN</h3>
+                    <canvas id="canvas2"></canvas>
+                    <button class="downloadBtn" data-index="2">다운로드</button>
+                </div>
+                <div class="previewItem">
+                    <h3>BLUE</h3>
+                    <canvas id="canvas3"></canvas>
+                    <button class="downloadBtn" data-index="3">다운로드</button>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>
